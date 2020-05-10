@@ -1,27 +1,22 @@
 import React from 'react';
+import AccountList from "./AcountList";
 
 const App = () =>{
-    const App = () => {
         return (
             <div className="container">
                 <div className="row">
 
                     <div className="col-sm-4">
-                        <TeamList />
+                        <AccountList />
                     </div>
 
                     <div className="col-sm-4">
 
-                    </div>
-
-                    <div className="col-sm-4">
-                        <TeamList />
                     </div>
 
                 </div>
             </div>
         );
-    };
-}
+};
 
 export default App;
