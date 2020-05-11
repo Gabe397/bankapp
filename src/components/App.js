@@ -1,22 +1,41 @@
 import React from 'react';
-import AccountList from "./AcountList";
+import axios from 'axios';
+import { connect } from 'react-redux';
 
-const App = () =>{
+import AccountList from "./AcountList";
+import AddAccount from "./AddAccount";
+import { setAccounts, accountError } from "../actions";
+
+
+class App extends React.Component {
+
+    getData() {
+        axios.get('http://my-json-server.typicode.com/bnissen24/project2DB/accounts')
+            .then(response => {
+                this.props.setAccounts(response.data);
+            }).catch(error => {
+            this.props.accountError();
+        });
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
+    render() {
         return (
             <div className="container">
-                <div className="row">
-
-                    <div className="col-sm-4">
-                        <AccountList />
-                    </div>
-
-                    <div className="col-sm-4">
-
-                    </div>
-
-                </div>
+                <AddAccount />
+                <AccountList />
             </div>
         );
+    }
+
+}
+
+const mapStateToProps = (state) => {
+    return {
+        errorMessage: state.errors.getAccounts
+    };
 };
 
-export default App;
+export default connect(mapStateToProps, { setAccounts, accountError })(App);

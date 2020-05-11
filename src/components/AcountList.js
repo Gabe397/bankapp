@@ -1,44 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {removeAccount} from '../actions';
+
+import AccountItem from "./AccountItem";
+
 
 class AccountList extends React.Component {
 
-    renderList() {
-        let accountList = this.props.accounts;
 
-        console.log(accountList);
-        return accountList.map((acc, index) => {
-            return (
-                <li className="list-group-item" key={index}>
-                    { acc.name }
-                    <button type="button" className="btn btn-danger pull-right">
-                        Delete
-                    </button>
-                </li>
-            );
-        });
-    }
+    removeAccount = (account) => {
+
+        this.props.removeAccount(account._id);
+    };
 
 
     render() {
-        const AccountList = this.renderList();
+        const AccountItems = this.props.accounts.map(account => {
+            return <AccountItem account={account} key={account._id} removeAccount={this.removeAccount} />
+        });
 
         return (
-            <div className="card">
-                <h3>Team List</h3>
-                <ul className="list-group">
-                    { AccountList }
-                </ul>
-            </div>
+            <ul className="task-list list-group">
+                { AccountItems }
+            </ul>
         )
     }
-
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        accounts: state.accounts.accounts
+        accounts: state.accounts
     };
 };
 
-export default connect(mapStateToProps)(AccountList);
+export default connect(mapStateToProps, { removeAccount })(AccountList);
