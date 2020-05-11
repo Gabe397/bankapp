@@ -7,7 +7,6 @@ class AddAccount extends React.Component {
 
     onFormSubmit = (event) => {
         event.preventDefault();
-
         this.props.addAccount(this.state.newAccount);
         this.setState({ newAccount: '' })
     };
@@ -15,14 +14,14 @@ class AddAccount extends React.Component {
     render() {
         return (
             <form className="task-input form-group" onSubmit={this.onFormSubmit}>
-                <label htmlFor="newTask">Enter New Task</label>
+                <label htmlFor="newAccount">Add New Account</label>
                 <input type="text" className="form-control"
-                       name="newTask"
-                       value={this.state.newTask}
-                       onChange={(e) => this.setState({ newTask: e.target.value })} />
+                       name="newAccount"
+                       value={this.state.newAccount}
+                       onChange={(e) => this.setState({ newAccount: e.target.value })} />
             </form>
         );
     }
 }
 
-export default connect(null, { AddAccount })(AddAccount);
+export default connect(null, { addAccount })(AddAccount);

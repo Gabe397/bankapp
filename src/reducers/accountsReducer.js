@@ -5,7 +5,7 @@ const accountsReducer = (state = [], action) => {
         case 'ADD_ACCOUNT':
             return [
                 ...state,
-                { title: action.payload, id: state.length + 1 }
+                { name: action.payload, _id: state.length + 1 }
             ];
         case 'DELETE_ACCOUNT':
             const accountIndex = state.findIndex(t => t.id === action.payload);
