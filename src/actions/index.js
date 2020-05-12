@@ -21,6 +21,14 @@ export const withdraw = (amount,p2) => {
     }
 };
 
+export const deposit = (amount,p2) => {
+    return {
+        type: 'DEPOSIT',
+        payload: amount,
+        payload2:p2
+
+    }
+}
 export const removeAccount = (accountId) => {
     return {
         type: 'DELETE_ACCOUNT',

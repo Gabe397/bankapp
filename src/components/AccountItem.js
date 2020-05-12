@@ -1,5 +1,6 @@
 import React from 'react';
 import Withdraw from "./Withdraw";
+import Deposit from "./Deposit";
 
 
 const AccountItem = props => {
@@ -14,6 +15,7 @@ const AccountItem = props => {
             </button>
 
             <Withdraw account={props.account} key={props.account._id}/>
+            <Deposit account={props.account} />
 
         </li>
     )
