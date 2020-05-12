@@ -12,19 +12,23 @@ export const addAccount = (text) => {
     }
 }
 
+export const withdraw = (amount,p2) => {
+    return {
+        type: 'WITHDRAW',
+        payload: amount,
+        payload2:p2
+
+    }
+};
+
 export const removeAccount = (accountId) => {
     return {
         type: 'DELETE_ACCOUNT',
-        payload: accountId
+        payload: accountId,
     }
 }
 
-export const withdraw = (accountId) => {
-    return {
-        type: 'WITHDRAW',
-        payload: accountId
-    }
-};
+
 
 export const accountError = errorMessage => {
     return {

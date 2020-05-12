@@ -14,11 +14,8 @@ const accountsReducer = (state = [], action) => {
             return accountList;
 
         case 'WITHDRAW':
-            const aIndex = action.payload;
-            let aList = [ ...state ];
-            console.log(aList);
-            console.log(aIndex);
-            return aList;
+            console.log(action.payload);
+            console.log(action.payload2);
 
         default:
             return state;
