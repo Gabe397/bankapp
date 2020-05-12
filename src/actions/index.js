@@ -19,6 +19,13 @@ export const removeAccount = (accountId) => {
     }
 }
 
+export const withdraw = (accountId) => {
+    return {
+        type: 'WITHDRAW',
+        payload: accountId
+    }
+};
+
 export const accountError = errorMessage => {
     return {
         type: 'ACCOUNT_ERROR'
