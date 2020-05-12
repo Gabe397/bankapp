@@ -4,10 +4,9 @@ import { withdraw } from '../actions';
 
 class Withdraw extends React.Component {
     state = { newAmt: '' };
-
     onFormSubmit = (event) => {
         event.preventDefault();
-        this.props.withdraw(this.state.newAmt,"2");
+        this.props.withdraw(this.state.newAmt,this.props.account);
         this.setState({ newAmt: '' })
     };
 

@@ -13,7 +13,7 @@ const AccountItem = props => {
                 Delete Account
             </button>
 
-            <Withdraw/>
+            <Withdraw account={props.account} key={props.account._id}/>
 
         </li>
     )
